@@ -1,0 +1,88 @@
+x = [3, 5, 7]
+y = [3, 5, 7]
+y += x
+y => [6, 10, 14]
+y -= x
+y => [3, 5, 7]
+x + y => [6, 10, 14]
+x - y => [0, 0, 0]
+dot(x,y) => 83
+reset x as [1, 0, 0]
+reset y as [0, 1, 0]
+z = cross(x, y)
+z = [0, 0, 1]
+A = 
+[1, 2, -1]
+[2, 1, 0]
+[3, -2, 1]
+B = A^T
+B = 
+[1, 2, 3]
+[2, 1, -2]
+[-1, 0, 1]
+A's rows: 
+A's row[0] = [1, 2, -1]
+A's row[1] = [2, 1, 0]
+A's row[2] = [3, -2, 1]
+B's columns: 
+B's column[0] = [1, 2, -1]
+B's column[1] = [2, 1, 0]
+B's column[2] = [3, -2, 1]
+A*x = [1, 2, 3]
+A*y = [2, 1, -2]
+A*z = [-1, 0, 1]
+x*A = [1, 2, -1]
+y*A = [2, 1, 0]
+z*A = [3, -2, 1]
+pointer casting test
+vector x to pointer casting
+1 0 0 
+matrix A to pointer casting
+1 2 3 2 1 -2 -1 0 1 
+x = [3, 5, 7, 1]
+y = [3, 5, 7, 1]
+y += x
+y => [6, 10, 14, 2]
+y -= x
+y => [3, 5, 7, 1]
+x + y => [6, 10, 14, 2]
+x - y => [0, 0, 0, 0]
+dot(x,y) => 84
+reset x as [1, 0, 0, 0]
+reset y as [0, 1, 0, 0]
+reset z as [0, 0, 1, 0]
+reset w as [0, 0, 0, 1]
+A = 
+[1, 2, -1, -1]
+[2, 1, 0, 2]
+[3, -2, 1, 4]
+[0, 0, 0, 1]
+B = A^T
+B = 
+[1, 2, 3, 0]
+[2, 1, -2, 0]
+[-1, 0, 1, 0]
+[-1, 2, 4, 1]
+A's rows: 
+A's row[0] = [1, 2, -1, -1]
+A's row[1] = [2, 1, 0, 2]
+A's row[2] = [3, -2, 1, 4]
+A's row[3] = [0, 0, 0, 1]
+B's columns: 
+B's column[0] = [1, 2, -1, -1]
+B's column[1] = [2, 1, 0, 2]
+B's column[2] = [3, -2, 1, 4]
+B's column[3] = [0, 0, 0, 1]
+A*x = [1, 2, 3, 0]
+A*y = [2, 1, -2, 0]
+A*z = [-1, 0, 1, 0]
+A*w = [-1, 2, 4, 1]
+x*A = [1, 2, -1, -1]
+y*A = [2, 1, 0, 2]
+z*A = [3, -2, 1, 4]
+w*A = [0, 0, 0, 1]
+pointer casting test
+vector x to pointer casting
+1 0 0 0 
+matrix A to pointer casting
+1 2 3 0 2 1 -2 0 -1 0 1 0 -1 2 4 1 
