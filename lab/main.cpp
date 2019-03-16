@@ -1,8 +1,8 @@
 ///// main.cpp
-#include < GL / glew.h >
-#include < GLFW / glfw3.h >
+#include <GL/glew.h>
+#include <GLFW/glfw3.h>
 
-#include < iostream >
+#include <iostream>
 
 int main(void) {
     GLFWwindow * window;
@@ -11,7 +11,7 @@ int main(void) {
         return -1;
 
     // Create a GLFW window containing a OpenGL context
-    window = glfwCreateWindow(500, 500, "Hello OpenGL", NULL, NULL);
+    window = glfwCreateWindow(800, 800, "Gihyeon Yang", NULL, NULL);
     if (!window) {
         glfwTerminate();
         return -1;
@@ -30,7 +30,7 @@ int main(void) {
     // Loop until the user closes the window
     while (!glfwWindowShouldClose(window)) {
         // Render here
-        glClearColor(0.5, 0.5, 0.5, 1.0);
+        glClearColor(1.0, 1.0, 1.0, 1.0);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         // Swap front and back buffers
@@ -41,6 +41,5 @@ int main(void) {
     }
 
     glfwTerminate();
-    49
     return 0;
 }
