@@ -43,6 +43,10 @@
         "tuple": "cpp",
         "type_traits": "cpp",
         "typeinfo": "cpp",
-        "utility": "cpp"
+        "utility": "cpp",
+        "__string": "cpp",
+        "chrono": "cpp",
+        "cwctype": "cpp",
+        "ratio": "cpp"
     }
 }
