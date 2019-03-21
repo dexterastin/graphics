@@ -37,7 +37,7 @@ namespace kmuvcl {
 
             vec &operator=(const vec<N, T> &other) {
                 for(int i = 0; i < N; i++) {
-                    this->val[i] = other.val[i];
+                    (*this)(i) = other(i);
                 }
                 return *this;
             }
@@ -61,14 +61,14 @@ namespace kmuvcl {
 
             vec &operator+=(const vec<N, T> &other) {
                 for(unsigned int i = 0; i < N; i++) {
-                    this->val[i] += other.val[i];
+                    (*this)(i) += other(i);
                 }
                 return *this;
             }
 
             vec &operator-=(const vec<N, T> &other) {
                 for(unsigned int i = 0; i < N; i++) {
-                    this->val[i] -= other.val[i];
+                    (*this)(i) -= other(i);
                 }
                 return *this;
             }
