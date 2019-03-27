@@ -12,7 +12,7 @@ void testing_matrix_to_pointer_type_cast(float *mat, unsigned int sz);
 
 
 int main() {
-    // dim_3x3_test();
+    dim_3x3_test();
     dim_4x4_test();
 
     return 0;
