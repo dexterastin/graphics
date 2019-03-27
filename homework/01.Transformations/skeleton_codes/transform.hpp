@@ -76,21 +76,50 @@ namespace kmuvcl
         template<typename T>
         mat<4, 4, T> lookAt(T eyeX, T eyeY, T eyeZ, T centerX, T centerY, T centerZ, T upX, T upY, T upZ)
         {
-            mat<4, 4, T> viewMat;
+            mat<4, 4, T> camAxisMat, invMat;
+            camAxisMat(3, 3) = static_cast<T>(1);
 
-           
+            for(unsigned int i = 0; i < 4; i++)
+                invMat(i, i) = static_cast<T>(1);
+            
+            invMat(0, 3) = -eyeX;
+            invMat(1, 3) = -eyeY;
+            invMat(2, 3) = -eyeZ;
 
-            // TODO: Fill up this function properly 
+            vec<3, T> zaxis(centerX - eyeX,
+                            centerY - eyeY,
+                            centerZ - eyeZ);
+            vec<3, T> xaxis = cross(zaxis,
+                                    vec<3, T>(upX, upY, upZ));
+            vec<3, T> yaxis = cross(xaxis, zaxis);
 
-            return viewMat;
+            xaxis = xaxis / sqrt(dot(xaxis, xaxis));
+            yaxis = yaxis / sqrt(dot(yaxis, yaxis));
+            zaxis = zaxis / sqrt(dot(zaxis, zaxis)) * -1;
+
+            for(unsigned int c = 0; c < 3; c++)
+            {
+                camAxisMat(0, c) = xaxis(c);
+                camAxisMat(1, c) = yaxis(c);
+                camAxisMat(2, c) = zaxis(c);
+            }
+
+            return camAxisMat * invMat;
         }
 
         template<typename T>
         mat<4, 4, T> ortho(T left, T right, T bottom, T top, T nearVal, T farVal)
         {
             mat<4, 4, T> orthoMat;
-            
-            // TODO: Fill up this function properly 
+
+            orthoMat(0, 0) = 2 / (right - left);
+            orthoMat(1, 1) = 2 / (top - bottom);
+            orthoMat(2, 2) = -2 / (farVal - nearVal);
+
+            orthoMat(0, 3) = -(right + left) / (right - left);
+            orthoMat(1, 3) = -(top + bottom) / (top - bottom);
+            orthoMat(2, 3) = -(farVal + nearVal) / (farVal - nearVal);
+            orthoMat(3, 3) = static_cast<T>(1);
 
             return orthoMat;
         }

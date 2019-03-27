@@ -6,6 +6,27 @@
 
 namespace kmuvcl {
     namespace math {
+        /// w_n = u_n * double
+        template<unsigned int N, typename T>
+        vec<N, T> operator*(const vec<N, T> &u, const double m) {
+            vec<N, T> w;
+
+            for (unsigned int i = 0; i < N; ++i)
+                w(i) = u(i) * m;
+
+            return w;
+        }
+
+        /// w_n = u_n / double
+        template<unsigned int N, typename T>
+        vec<N, T> operator/(const vec<N, T> &u, const double m) {
+            vec<N, T> w;
+
+            for (unsigned int i = 0; i < N; ++i)
+                w(i) = u(i) / m;
+
+            return w;
+        }
 
         /// w_n = u_n + v_n
         template<unsigned int N, typename T>
