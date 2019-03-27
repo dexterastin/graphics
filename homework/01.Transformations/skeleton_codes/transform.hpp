@@ -129,7 +129,13 @@ namespace kmuvcl
         {
            mat<4, 4, T> frustumMat;
 
-           // TODO: Fill up this function properly 
+           frustumMat(0, 0) = 2 * nearVal / (right - left);
+           frustumMat(0, 2) = (right + left) / (right - left);
+           frustumMat(1, 1) = 2 * nearVal / (top - bottom);
+           frustumMat(1, 2) = (top + bottom) / (top - bottom);
+           frustumMat(2, 2) = -(farVal + nearVal) / (farVal - nearVal);
+           frustumMat(2, 3) = -2 * farVal * nearVal / (farVal - nearVal);
+           frustumMat(3, 2) = static_cast<T>(-1);
 
            return frustumMat;
         }
@@ -137,12 +143,10 @@ namespace kmuvcl
         template<typename T>
         mat<4, 4, T> perspective(T fovy, T aspect, T zNear, T zFar)
         {
-          T  right = 0;
-          T  top = 0;
-
-          // TODO: Fill up this function properly 
-
-          return frustum(-right, right, -top, top, zNear, zFar);
+           fovy = fovy / 2 * M_PI / 180;
+           T  top = tan(fovy) * zNear;
+           T  right = top * aspect;
+           return frustum(-right, right, -top, top, zNear, zFar);
         }
     }
 }
